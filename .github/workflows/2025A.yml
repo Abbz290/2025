@@ -50,9 +50,9 @@ jobs:
     - name: SSH into Local Host and Deploy
       uses: appleboy/ssh-action@v0.1.7
       with:
-        SSH_HOST: ${{ secrets.SSH_HOST }}
-        SSH_USER: abbas_ali
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 80  # SSH default port
         script: |
           # Login to Docker Hub
