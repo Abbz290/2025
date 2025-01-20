@@ -13,7 +13,7 @@ WORKDIR /app
 COPY --from=build /out .
 
 # Expose port 8080 to allow communication
-EXPOSE 6060
+EXPOSE 8080
 
 # Set the entry point to run your Blazor Server app
 ENTRYPOINT ["dotnet", "2025.dll"]
