@@ -1,4 +1,4 @@
-name: Build and Deploy Blazor App
+name: My2025App
 
 on:
   push:
@@ -27,10 +27,10 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-buildx-
 
-    - name: Build Docker image
+    - name: DockerIamge
       run: |
         
-         docker build -f 2025/2025/Dockerfile -t my-blazor-app .
+         docker build -f 2025/Dockerfile -t my-blazor-app .
 
    
 
