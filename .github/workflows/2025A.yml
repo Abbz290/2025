@@ -30,7 +30,7 @@ jobs:
     - name: Build Docker image
       run: |
         
-         docker build -f 2025/Dockerfile -t my-blazor-app .
+         docker build -f 2025/2025/Dockerfile -t my-blazor-app .
 
    
 
