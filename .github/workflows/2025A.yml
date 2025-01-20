@@ -73,6 +73,6 @@ jobs:
           # Run the new container
           docker run -d \
             --name 2025-app \
-            -p 3000:80 \ # Replace 3000 with your preferred port
+            -p 8080:8080 \ # Replace 3000 with your preferred port
             --restart unless-stopped \
             abbz290/2025d:latest
