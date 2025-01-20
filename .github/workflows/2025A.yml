@@ -58,6 +58,7 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}  # Use your local machine's username here
         key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22  # SSH default port
         
         script: |
           # Login to Docker Hub
