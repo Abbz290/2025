@@ -40,3 +40,32 @@ jobs:
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_TOKEN }}
         docker tag my-blazor-app abbz290/2025d:latest
         docker push abbz290/2025d:latest
+        
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+
+    steps:
+    - name: SSH into Local Host and Deploy
+      uses: appleboy/ssh-action@v0.1.7
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        
+        script: |
+          # Login to Docker Hub
+          echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+          
+          # Pull the latest Docker image
+          docker pull abbz290/2025d:latest
+          
+          # Stop and remove the existing container
+          docker stop 2025-app || true
+          docker rm 2025-app || true
+          
+          # Run the new container
+          docker run -d \
+            --name 2025-app \
+            -p 3000:80 \ # Replace 3000 with your preferred port
+            --restart unless-stopped \
+            abbz290/2025d:latest
