@@ -67,12 +67,12 @@ jobs:
           docker pull abbz290/2025d:latest
           
           # Stop and remove the existing container
-          docker stop 2025-app || true
-          docker rm 2025-app || true
+          docker stop 2025d-app || true
+          docker rm 2025d-app || true
           
           # Run the new container
           docker run -d \
-            --name 2025-app \
+            --name 2025d-app \
             -p 8080:8080 \ # Replace 3000 with your preferred port
             --restart unless-stopped \
             abbz290/2025d:latest
