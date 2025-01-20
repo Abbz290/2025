@@ -50,8 +50,8 @@ jobs:
     - name: SSH into Local Host and Deploy
       uses: appleboy/ssh-action@v0.1.7
       with:
-        host: localhost
-        username: abbas_ali
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22  # SSH default port
         script: |
