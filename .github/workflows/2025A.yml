@@ -53,7 +53,7 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: abbas_ali
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        port: 22  # SSH default port
+        port: 80  # SSH default port
         script: |
           # Login to Docker Hub
           echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
